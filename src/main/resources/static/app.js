@@ -17,9 +17,12 @@ helloApp.config(['$routeProvider',
   }]);
 
   helloApp.controller('HomeCtrl',function($scope) {
+  $scope.message =null;
     $scope.initHome = function() {
       console.log("init home");
     };
+    $scope.sayHello = function() {
+    $scope.message =  "Hello";}
   });
 
   helloApp.controller('AngularCtrl', function($scope) {

@@ -1,4 +1,4 @@
-describe("Player", function() {
+describe("HomeCtrl", function() {
 
 
   beforeEach(module('Hello'));
@@ -10,10 +10,13 @@ var $controller;
     $controller = _$controller_;
   }));
 
-describe("HomeCtrl",function() {
+describe("$scope.message",function() {
 
     it("first test",function() {
-    expect($scope.strength).toEqual('strong');
+         var $scope = {};
+          var controller = $controller('HomeCtrl', { $scope: $scope });
+          $scope.sayHello();
+    expect($scope.message).toEqual('Hello');
     });
 
 });
