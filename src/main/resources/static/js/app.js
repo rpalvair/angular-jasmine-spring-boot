@@ -31,3 +31,23 @@ helloApp.config(['$routeProvider',
     }
     $scope.cities = [{name:"Paris"}, {name:"London"}];
   });
+
+  helloApp.factory('interceptor',['$q','$log',function($q,$log){
+    return {
+        // optional method
+        'request': function(config) {
+          // do something on success
+          $log.debug("config = "+angular.toJson(config));
+          config.headers['x-my-token'] = "a token";
+          return config;
+        },
+        'response': function(response) {
+            $log.debug("response = "+angular.toJson(response));
+            return response;
+        }
+      };
+  }]);
+
+  helloApp.config(['$httpProvider', function($httpProvider) {
+      $httpProvider.interceptors.push('interceptor');
+  }]);
