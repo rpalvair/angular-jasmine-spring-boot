@@ -16,14 +16,17 @@ helloApp.config(['$routeProvider',
       });
   }]);
 
-  helloApp.controller('HomeCtrl',function($scope) {
+  helloApp.controller('HomeCtrl',['$scope','messager','$log',function($scope,$messager,$log) {
   $scope.message =null;
     $scope.initHome = function() {
-      console.log("init home");
+      $log.debug("init home");
+      $log.debug("message = "+$messager.getMessage());
+      $messager.setMessage("Hello widdy!");
+      $log.debug("message = "+$messager.getMessage());
     };
     $scope.sayHello = function() {
     $scope.message =  "Hello";}
-  });
+  }]);
 
   helloApp.controller('AngularCtrl', function($scope) {
     $scope.initAngular = function() {
