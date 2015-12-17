@@ -23,6 +23,7 @@ helloApp.config(['$routeProvider',
       $log.debug("message = "+$messager.getMessage());
       $messager.setMessage("Hello widdy!");
       $log.debug("message = "+$messager.getMessage());
+      $messager.getAllMessages();
     };
     $scope.sayHello = function() {
     $scope.message =  "Hello";}
